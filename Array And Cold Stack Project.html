@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array and Call Stack Project</title>
+</head>
+
+<body>
+    <h2>Tinu faviourate Colors</h2>
+    <div id="info"></div>
+
+    <h2>Tinu's Favorite Colors</h2>
+    <ul id="colors"></ul>
+
+    <button onclick="performArrayMethods()">Update Colors</button>
+
+    <script>
+        // Tinu's info object
+        const tinuInfo = {
+            name: "Tinu",
+            age: 25,
+            hobby: "Painting"
+        };
+
+        // Array of favorite colors
+        const favoriteColors = ["Red", "Blue", "Green", "Yellow"];
+
+        // Display Tinu's information
+        function displayInfo() {
+            const infoDiv = document.getElementById("info");
+            infoDiv.innerHTML = "";  // Clear content
+            for (const key in tinuInfo) {
+                infoDiv.innerHTML += `<p>${key}: ${tinuInfo[key]}</p>`;
+            }
+        }
+
+        // Display colors with index
+        function displayColors() {
+            const colorsList = document.getElementById("colors");
+            colorsList.innerHTML = "";  // Clear content
+            favoriteColors.forEach((color, index) => {
+                colorsList.innerHTML += `<li>Index ${index}: ${color}</li>`;
+            });
+        }
+
+        // Modify colors array
+        function performArrayMethods() {
+            favoriteColors.push("Purple");  // Add new color
+            favoriteColors.shift();  // Remove first color
+            displayColors();  // Update display
+        }
+
+        // Initial display
+        displayInfo();
+        displayColors();
+    </script>
+</body>
